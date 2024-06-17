@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Antrag auf behinderten Schein</title>
 </head>
 <body>
-$END$
+<div>
+    <form action="https://wba.cs.hs-rm.de/form.php" method="get">
+        <fieldset>
+            <legend>Gender</legend>
+
+        <input type="radio" name="Gender" id="Male" value="Male" required>
+        <label for="Male">Male</label>
+
+        <input type="radio" name="Gender" id="Female" value="Female" required>
+        <label for="Female">Female</label>
+        </fieldset>
+        <fieldset>
+            <legend>Name</legend>
+            Name:
+            <input type="text" >
+            Surname:
+            <input type="text" >
+        </fieldset>
+        <fieldset>
+            <div>
+            <legend>Address</legend>
+            Street:
+            <input type="text" >
+            House number:
+            <input type="text" >
+                <br>
+                <br>
+            PLZ:
+                <input type="text" name="text" pattern="[0-9]"  maxlength="5" value="06122"/>
+            City:
+            <input type="text" >
+            </div>
+        </fieldset>
+        <input type="text" name="PLZ" size="5">
+    </form>
+</div>
 </body>
 </html>
+
