@@ -6,11 +6,11 @@
 </head>
 <body>
 <div>
-    <form action="https://wba.cs.hs-rm.de/form.php" method="get">
+    <form action="https://wba.cs.hs-rm.de/form.php" method="post">
         <fieldset>
             <legend>Gender</legend>
 
-        <input type="radio" name="Gender" id="Male" value="Male" required>
+        <input type="radio" name="Gender" id="Male" value="Male"  required>
         <label for="Male">Male</label>
 
         <input type="radio" name="Gender" id="Female" value="Female" required>
@@ -19,26 +19,29 @@
         <fieldset>
             <legend>Name</legend>
             Name:
-            <input type="text" >
+            <input type="text" placeholder="Max">
             Surname:
-            <input type="text" >
+            <input type="text" placeholder="Mustermann" >
         </fieldset>
         <fieldset>
             <div>
             <legend>Address</legend>
             Street:
-            <input type="text" >
+            <input type="text" placeholder="Musterstraße">
             House number:
-            <input type="text" >
+            <input type="text"  placeholder="1">
                 <br>
                 <br>
             PLZ:
-                <input type="text" name="text" pattern="[0-9]"  maxlength="5" value="06122"/>
+                <input type="text" name="text" pattern="[0-9]+"  maxlength="5" placeholder="066666"/>
             City:
-            <input type="text" >
+            <input type="text" placeholder="Musterstadt" >
             </div>
         </fieldset>
-        <input type="text" name="PLZ" size="5">
+        <fieldset>
+            <legend>Absenden</legend>
+            <input type="submit">
+        </fieldset>
     </form>
 </div>
 </body>
