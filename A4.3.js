@@ -1,13 +1,14 @@
-// Wartet, bis das DOM vollständig geladen ist
-document.addEventListener("DOMContentLoaded", function() {
-    // Fügt einen Event-Listener zum Formular hinzu, um das Submit-Event abzufangen
-    document.getElementById('myForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Verhindert das tatsächliche Absenden des Formulars
-        getNumber();
-    });
+function calculateVectorLength() {
+    let iN1,iN2,iN3,solution;
+    iN1 = document.getElementById('iN1').value;
+    iN2 = document.getElementById('iN2').value;
+    iN3 = document.getElementById('iN3').value;
 
-    function getNumber() {
-        var number = parseInt(document.getElementById('numberInput').value);
-        console.log(number); // Ausgabe: 42
-    }
-});
+    solution = Math.sqrt(Math.pow(Number(iN1), 2)+Math.pow(Number(iN2), 2)+Math.pow(Number(iN3),2))
+    document.getElementById('solution').value= solution;
+}
+
+
+let input3 = document.getElementById('button');
+
+input3.addEventListener('click',calculateVectorLength,false)
