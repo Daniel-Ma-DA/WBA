@@ -10,23 +10,41 @@
     </h1>
     <img src="A4.4.png" alt="picture of a Kegel">
     <form>
-        <input type="text" id="RG"/>
+        <h2>Kegelstumpf</h2>
         <label for="RG">Radius Grundfläche R</label>
+        <input type="text" id="RG"/>
+        <br>
+        <label for="rS">Radius Deckfläche R</label>
         <input type="text" id="rS"/>
-        <label for="rS">Radius Stumpffläche R</label>
-        <input type="text" id="h"/>
+        <br>
         <label for="h">height h</label>
+        <input type="text" id="h"/>
+        <br>
         <!-- Output -->
         <br/>
         <button type="button" onclick="createKegelstumpf()">Kegelstumpf erstellen</button>
-        <input type="text" id="volumen"/>
-        <label for="volumen">volumen</label>
-        <input type="text" id="mantelflaeche"/>
-        <label for="mantelflaeche"> mantelflaeche </label>
-        <input type="text" id="oberflaeche"/>
-        <label for="oberflaeche">oberflaeche</label>
+        <h2>Zylinder</h2>
+        <label for="RZ">Radius (R):</label>
+        <input type="text" id="RZ"><br>
+        <label for="h">Höhe (h):</label>
+        <input type="text" id="hZ"><br>
+        <button type="button" onclick="createZylinder()">Berechne Zylinder</button><br>
+        <h2>Kreiskegel</h2>
+        <label for="RKK">Radius (R):</label>
+        <input type="text" id="RKK"><br>
+        <label for="h">Höhe (h):</label>
+        <input type="text" id="hKK"><br>
+        <button type="button" onclick="createKreiskegel()">Berechne Kreiskegel</button><br>
 
+        <h2>Ergebnis</h2>
+        <label for="volumen">Volumen:</label>
+        <input type="text" id="volumen" readonly>
+        <label for="mantelflaeche">Mantelfläche:</label>
+        <input type="text" id="mantelflaeche" readonly>
+        <label for="oberflaeche">Oberfläche:</label>
+        <input type="text" id="oberflaeche" readonly>
     </form>
+
     <script src="A4.4.js">
     </script>
 </body>
