@@ -1,17 +1,38 @@
+const wein = [
+    ["Marienthaler Stiftsberg Roweincuvee", 3.60],
+    ["Rieslin Classic", 3.20],
+    ["Silvaner Selection Rheinhessen",6.90],
+    ["Domäne Avelbach Riesling Sekt",6.15],
+    ["Daniels Schnaos", 100.00]
+
+];
 document.addEventListener('DOMContentLoaded', function (){
-    let wein = [
-        ["Marienthaler Stiftsberg Roweincuvee", 3.60],
-        ["Rieslin Classic", 3],
-        ["Silvaner Selection Rheinhessen",6.90],
-        ["Domäne Avelbach Riesling Sekt",6.15]
-    ];
-    const table = document.getElementById('Weine')
-    const tbody = table.querySelector('tbody')
-    const newRow = document.createElement('tr');
-    const cell1 = document.createElement('td');
-    cell1.innerText = 'Daniel'
-    newRow.appendChild(cell1);
-    tbody.appendChild(newRow)
+    //Array of all wines with respective prices
+
+    const table = document.getElementById('Weine');
+    const tbody = table.querySelector('tbody');
+
+    //Automatic creation of Table Rows for every wine
+    wein.forEach(function (rowArray) {
+        const tableRow = document.createElement('tr');
+        let input = document.createElement('input');
+        input.type = 'text'; input.className = 'quantity'; input.min = '0'; input.oninput = function() { validateNumberInput(this); }; input.onchange = function() { checkAmountBottles(); }; input.placeholder = '0';
+        tableRow.appendChild(input)
+        rowArray.forEach(function (arrayCell) {
+            const tableCell = document.createElement('td');
+            tableCell.innerText= arrayCell;
+            tableRow.appendChild(tableCell);
+        });
+        let sumPriceForOneWine = document.createElement('td');
+        sumPriceForOneWine.className = 'total-price'
+        //let spanPrice =document.createElement('span');
+        //spanPrice.className = 'total-price'
+        //sumPriceForOneWine.appendChild(spanPrice);
+        tableRow.appendChild(sumPriceForOneWine);
+        tbody.appendChild(tableRow);
+
+    });
+
 
 
 
@@ -21,6 +42,19 @@ function validateNumberInput(input) {
     input.value = input.value.replace(/[^0-9]/g, '');
     updateTotalPrice(input);
 }
+function updateTotalPrice(input) {
+    const totalPrices =document.querySelectorAll('.total-price');
+    console.log(totalPrices)
+    const inputAmounts = document.querySelectorAll('.quantity')
+    console.log(inputAmounts)
+    const winePrices = wein.map(prices => prices[1])
+    console.log(winePrices)
+    for (let i = 0; i < inputAmounts.length-1; i++) {
+        console.log(totalPrices[i].textContent);
+    }
+    
+}
+/*
 function updateTotalPrice(input) {
     const row = input.parentElement.parentElement; // Holt die aktuelle Zeile (tr)
     const quantity = parseFloat(input.value);
@@ -36,6 +70,8 @@ function updateTotalPrice(input) {
 
     updateSum(); // Aktualisiert die Zwischensumme und die Gesamtsumme
 }
+
+ */
 
 function updateSum() {
     //Summe von Weinen
