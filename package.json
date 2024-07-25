@@ -11,14 +11,18 @@
   },
   "private": true,
   "dependencies": {
-    "express": "^4.19.2"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
   },
   "bugs": {
     "url": "https://github.com/Daniel-Ma-DA/WBA/issues"
   },
   "homepage": "https://github.com/Daniel-Ma-DA/WBA#readme",
-  "devDependencies": {},
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "Daniel Martin",
+  "license": "UNLICENSED",
+  "description": "IDk some description",
+  "keywords": [
+    "Wine"
+  ]
 }

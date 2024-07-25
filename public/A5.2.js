@@ -8,7 +8,7 @@ const wein = [
 ];
 document.addEventListener('DOMContentLoaded', function (){
     //Array of all wines with respective prices
-
+    wein.sort();
     const table = document.getElementById('Weine');
     const tbody = table.querySelector('tbody');
 
@@ -24,10 +24,7 @@ document.addEventListener('DOMContentLoaded', function (){
             tableRow.appendChild(tableCell);
         });
         let sumPriceForOneWine = document.createElement('td');
-        sumPriceForOneWine.className = 'total-price'
-        //let spanPrice =document.createElement('span');
-        //spanPrice.className = 'total-price'
-        //sumPriceForOneWine.appendChild(spanPrice);
+        sumPriceForOneWine.className = 'total-price';sumPriceForOneWine.innerText='0.00';
         tableRow.appendChild(sumPriceForOneWine);
         tbody.appendChild(tableRow);
 
@@ -44,15 +41,15 @@ function validateNumberInput(input) {
 }
 function updateTotalPrice(input) {
     const totalPrices =document.querySelectorAll('.total-price');
-    console.log(totalPrices)
     const inputAmounts = document.querySelectorAll('.quantity')
-    console.log(inputAmounts)
     const winePrices = wein.map(prices => prices[1])
-    console.log(winePrices)
-    for (let i = 0; i < inputAmounts.length-1; i++) {
-        console.log(totalPrices[i].textContent);
+
+    for (let i = 0; i < inputAmounts.length; i++) {
+        if (inputAmounts[i].value.trim() === '') {
+            totalPrices[i].innerText = 0;
+        } else {totalPrices[i].innerText = (parseFloat(inputAmounts[i].value) * winePrices[i]).toFixed(2);}
     }
-    
+    updateSum();
 }
 /*
 function updateTotalPrice(input) {
@@ -78,14 +75,14 @@ function updateSum() {
     let sumWines =0;
 
     const totalPrices = document.querySelectorAll('.total-price');
-    console.log(sumWines)
+
     // Loop through each total price element
     totalPrices.forEach(td => {
         const value = parseFloat(td.innerHTML);
         if (!isNaN(value)) {
             sumWines += value;
         }
-        console.log(sumWines)
+
     });
     //Addiert mit
 
@@ -97,11 +94,10 @@ function updateSum() {
     }
 
 
-    console.log(sumWines)
-
-    document.getElementById('Zwsichensumme').innerText=sumWines.toFixed(2);
-    document.getElementById('MwSt').innerText=(sumWines*0.19).toFixed(2);
-    document.getElementById('Summe').innerText=(sumWines*1.19).toFixed(2);
+    document.getElementById('Zwsichensumme').innerText=sumWines.toFixed(2)+' €';
+    document.getElementById('MwSt').innerText=(sumWines*0.19).toFixed(2)+' €';
+    document.getElementById('Summe').value=(sumWines*1.19).toFixed(2)+' €';
+    document.getElementById('totalSum').value=(sumWines*1.19).toFixed(2)+' €';
 
 }
 
@@ -115,8 +111,11 @@ function checkAmountBottles() {
         }
     });
     console.log(total)
-    if (total>12) {
+    if (total > 12) {
         document.getElementById('Spedition').checked = true;
+    } else if (total > 0) {
+        document.getElementById('DHL').checked = true;
     }
+    document.getElementById('totalBottles').value = total;
 
 }

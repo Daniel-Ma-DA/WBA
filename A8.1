@@ -1,0 +1,21 @@
+(a) Fuhren Sie ein Ressource Design anhand der fünf Schritte für lesende
+und schreibende Ressourcen durch.
+
+1. Schritt "data set"
+    News lesen
+    News bearbeiten
+    Löschen einer News
+    News erstellen
+    Fehlerbehandlung
+
+2. Schritt Methoden
+Lesen:
+
+GET /news – Gibt eine Liste aller Nachrichten zurück.
+GET /news/{newsid} – Gibt die Details einer bestimmten Nachricht zurück.
+GET /news/date/{date} – Gibt alle Nachrichten von einem bestimmten Tag zurück.
+Schreiben:
+
+POST /news – Fügt eine neue Nachricht hinzu.
+PUT /news/{newsid} – Aktualisiert eine bestehende Nachricht.
+DELETE /news/{newsid} – Löscht eine Nachricht.

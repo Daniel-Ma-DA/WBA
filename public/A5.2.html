@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="A5.2.js">
+
+</script>
+<form id="wineForm" action="/submit" method="POST">
+    <table id="Weine">
+        <thead>
+        <tr>
+            <td>Flaschen</td>
+            <td>Weinname</td>
+            <td>Einzelflasche</td>
+            <td>Preis</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+        <tr>
+            <td><input type="radio" name="versand" oninput="checkAmountBottles();updateSum()" id="DHL" ></td>
+            <td>Versand DHL(bis 12 Flaschen)</td>
+            <td>10.00</td>
+            <td><span id="DHLCost">10.00</span></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="versand" oninput="updateSum()" id="Spedition"></input></td>
+            <td>Versand Spedition</td>
+            <td>10.00</td>
+            <td><span id="SpeditionCost">15.00</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Zwischensumme</td>
+            <td><span id="Zwsichensumme"></span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>MwSt</td>
+            <td><span id="MwSt"></span></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Summe</td>
+            <td><label for="Summe"></label><input  id="Summe" readonly></td>
+        </tr>
+        </tfoot>
+    </table>
+    <button type="submit" onclick="updateTotalPrice();checkAmountBottles()">Submit Order</button>
+    <input type="hidden" name="totalSum" id="totalSum">
+    <input type="hidden" name="totalBottles" id="totalBottles">
+
+
+</form>
+</body>
+</html>
