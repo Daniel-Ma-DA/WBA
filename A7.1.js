@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'A5.2.html'));
 });
 
+
 // Handle form submission
 
 app.post('/submit', (req, res) => {

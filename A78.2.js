@@ -33,7 +33,7 @@ app.get('/news/date/:date', (req, res) => {
     const sql = 'SELECT * FROM news WHERE DATE(time) = ?';
     db.query(sql, [date], (err, results) => {
         if (err) return res.status(500).send(err);
-        res.json(results);
+        res.json( );
     });
 });
 
